@@ -1,0 +1,12 @@
+Espanya:Madrid
+França:Paris
+Alemania:Berlin
+Portugal:Lisboa
+Italia:Roma
+Noruega:Oslo
+Paisos Baixos:Amsterdam
+Belgica:Bruselas
+Dinamarca:Copenhague
+Argentina:Buenos Aires
+Andorra:Andorra la Vella
+Rusia:Moscou
