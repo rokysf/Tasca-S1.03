@@ -11,7 +11,7 @@ public class Principal {
 
 		mesos.add(new Month("gener"));
 		mesos.add(new Month("febrer"));
-		mesos.add(new Month("març"));
+		mesos.add(new Month("marÃ§"));
 		mesos.add(new Month("abril"));
 		mesos.add(new Month("maig"));
 		mesos.add(new Month("juny"));
@@ -34,7 +34,7 @@ public class Principal {
         
         mesoshash.add(new Month("gener"));
         mesoshash.add(new Month("febrer"));
-        mesoshash.add(new Month("març"));
+        mesoshash.add(new Month("marÃ§"));
 
         for (Month month : mesoshash) {
 			System.out.println(month);
@@ -46,9 +46,6 @@ public class Principal {
         while (iter.hasNext()) {
 			System.out.println(iter.next());
 		}
-		
-		
-		
 	}
 
 }
