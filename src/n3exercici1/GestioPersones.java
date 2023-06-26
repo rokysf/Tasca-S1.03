@@ -23,7 +23,7 @@ public class GestioPersones {
 			while ((linea = br.readLine()) != null) {
 				String array[] = linea.split(",");
 				llistaPersones.add(new Persona(array[0], array[1], array[2]));
-			} 
+			}
 		} catch (Exception e) {
 			System.out.println("Error de lectura del fitxer persones.csv");
 		}
@@ -41,10 +41,10 @@ public class GestioPersones {
 				ordenadesNomAZ();
 				break;
 			case 3:
-
+				ordenadesNomZA();
 				break;
 			case 4:
-
+				ordenadesCognomAZ();
 				break;
 			case 5:
 
@@ -75,7 +75,7 @@ public class GestioPersones {
 			opcio = sc.nextByte();
 			sc.nextLine();
 			if (opcio < 0 || opcio > 7) {
-				System.out.println("L'opció escollida no es correcte");
+				System.out.println("L'opciÃ³ escollida no es correcte");
 			}
 		} while (opcio < 0 || opcio > 7);
 		return opcio;
@@ -84,11 +84,11 @@ public class GestioPersones {
 	public void introduirPersona() {
 		System.out.println("Introdueix el nom");
 		String nom = sc.nextLine();
-		System.out.println("Introdueix el cognom");
-		String cognom = sc.nextLine();
+		System.out.println("Introdueix els cognoms");
+		String cognoms = sc.nextLine();
 		System.out.println("Introdueix el dni");
 		String dni = sc.nextLine();
-		llistaPersones.add(new Persona(nom, cognom, dni));
+		llistaPersones.add(new Persona(nom, cognoms, dni));
 	}
 
 	public void ordenadesNomAZ() {
@@ -96,5 +96,60 @@ public class GestioPersones {
 			System.out.println(persona);
 		}
 	}
+
+	public void ordenadesNomZA() {
+		TreeSet<Persona> llistaInvertidaNom = (TreeSet<Persona>) ((TreeSet<Persona>) llistaPersones)
+				.descendingSet();
+		for (Persona persona : llistaInvertidaNom) {
+			System.out.println(persona);
+		}
+	}
+
+	public void ordenadesCognomAZ() {
+		Comparator<Persona> comp = new Comparator<Persona>() {
+			@Override
+			public int compare(Persona o1, Persona o2) {
+				return o1.getCognoms().compareToIgnoreCase(o2.getCognoms());
+			}
+		};
+		TreeSet<Persona> llistaCognoms = new TreeSet<>(comp);
+        llistaCognoms.addAll(llistaPersones);
+        for (Persona persona : llistaCognoms) {
+            System.out.println(persona);
+        }
+	}
+
+	/*
+	else {
+        TreeSet<Persona> personesOrdenades = new TreeSet<>(Collections.reverseOrder(comparator));
+        personesOrdenades.addAll(persones);
+        for (Persona p : personesOrdenades) {
+            System.out.println(p);
+        }
+    }
+}
+
+private static void mostrarPersonesOrdenadesPerDni(boolean ascendent) {
+    Comparator<Persona> comparator = new Comparator<Persona>() {
+        @Override
+        public int compare(Persona p1, Persona p2) {
+            return p1.getDni().compareTo(p2.getDni());
+        }
+    };
+    if (ascendent) {
+        TreeSet<Persona> personesOrdenades = new TreeSet<>(comparator);
+        personesOrdenades.addAll(persones);
+        for (Persona p : personesOrdenades) {
+            System.out.println(p);
+        }
+    } else {
+        TreeSet<Persona> personesOrdenades = new TreeSet<>(Collections.reverseOrder(comparator));
+        personesOrdenades.addAll(persones);
+        for (Persona p : personesOrdenades) {
+            System.out.println(p);
+        }
+    }
+}
+}*/
 
 }

@@ -1,48 +1,68 @@
 package n3exercici1;
 
-public class Persona implements Comparable<Persona>{
-	
+import java.util.Objects;
+
+public class Persona implements Comparable<Persona> {
+
 	private String nom;
-	private String cognom;
+	private String cognoms;
 	private String dni;
-	
-	public Persona(String nom, String cognom, String dni) {
+
+	public Persona(String nom, String cognoms, String dni) {
 		this.nom = nom;
-		this.cognom = cognom;
+		this.cognoms = cognoms;
 		this.dni = dni;
 	}
+
 	public String getNom() {
 		return nom;
 	}
+
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-	public String getCognom() {
-		return cognom;
+
+	public String getCognoms() {
+		return cognoms;
 	}
-	public void setCognom(String cognom) {
-		this.cognom = cognom;
+
+	public void setCognoms(String cognom) {
+		this.cognoms = cognom;
 	}
+
 	public String getDni() {
 		return dni;
 	}
+
 	public void setDni(String dni) {
 		this.dni = dni;
 	}
+
 	@Override
 	public String toString() {
-		return "Persona [nom=" + nom + ", cognom=" + cognom + ", dni=" + dni + "]";
+		return "Persona [nom=" + nom + ", cognoms=" + cognoms + ", dni=" + dni + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(dni);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Persona other = (Persona) obj;
+		return Objects.equals(dni, other.dni);
+	}
+
 	@Override
 	public int compareTo(Persona o) {
-		return nom.compareTo(o.nom) ;
+		return nom.compareTo(o.nom);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
