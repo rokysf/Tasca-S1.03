@@ -1,7 +1,6 @@
 package n2exercici1;
 
 import java.util.HashSet;
-import java.util.TreeSet;
 
 public class Principal {
 
@@ -18,13 +17,6 @@ public class Principal {
 		llistaRestaurants.add(new Restaurant("Can Traver", 7));
 
 		for (Restaurant restaurant : llistaRestaurants) {
-			System.out.println(restaurant);
-		}
-
-		System.out.println("**********************************************************");
-		TreeSet<Restaurant> llistaOrdenada = new TreeSet<Restaurant>(llistaRestaurants);
-
-		for (Restaurant restaurant : llistaOrdenada) {
 			System.out.println(restaurant);
 		}
 	}

@@ -2,7 +2,7 @@ package n2exercici1;
 
 import java.util.Objects;
 
-public class Restaurant implements Comparable<Restaurant> {
+public class Restaurant {
 
 	private String nom;
 	private int puntuacio;
@@ -32,16 +32,6 @@ public class Restaurant implements Comparable<Restaurant> {
 	@Override
 	public String toString() {
 		return "Restaurant [nom=" + nom + ", puntuacio=" + puntuacio + "]";
-	}
-
-	@Override
-	public int compareTo(Restaurant o) {
-		 int comparaNom = this.nom.compareTo(o.nom);
-		    if (comparaNom != 0) {
-		        return comparaNom;
-		    } else {
-		        return Integer.compare(this.puntuacio, o.puntuacio);
-		    }    
 	}
 
 }
