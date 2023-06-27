@@ -12,7 +12,7 @@ public class GestioPersones {
 	private Set<Persona> llistaPersones;
 
 	public GestioPersones() {
-		this.llistaPersones = new TreeSet<Persona>();
+		this.llistaPersones = new TreeSet<Persona>(new ComparadorDni());
 	}
 
 	public void llegirFitxer() {
@@ -50,10 +50,10 @@ public class GestioPersones {
 
 				break;
 			case 6:
-
+				ordenadesDni19();
 				break;
 			case 7:
-
+				ordenadesDni91();
 				break;
 			default:
 				System.out.println("Fins aviat");
@@ -75,7 +75,7 @@ public class GestioPersones {
 			opcio = sc.nextByte();
 			sc.nextLine();
 			if (opcio < 0 || opcio > 7) {
-				System.out.println("L'opciÃ³ escollida no es correcte");
+				System.out.println("L'opció escollida no es correcte");
 			}
 		} while (opcio < 0 || opcio > 7);
 		return opcio;
@@ -91,65 +91,43 @@ public class GestioPersones {
 		llistaPersones.add(new Persona(nom, cognoms, dni));
 	}
 
-	public void ordenadesNomAZ() {
-		for (Persona persona : llistaPersones) {
-			System.out.println(persona);
-		}
+	public TreeSet<Persona> ordenadesNomAZ() {
+		TreeSet<Persona> llistaNom = new TreeSet<Persona>(new ComparadorNom());
+		llistaNom.addAll(llistaPersones);
+		return llistaNom;
+		
 	}
 
 	public void ordenadesNomZA() {
-		TreeSet<Persona> llistaInvertidaNom = (TreeSet<Persona>) ((TreeSet<Persona>) llistaPersones)
-				.descendingSet();
+		//return  ordenadesNomAZ().descendingset();
+		TreeSet<Persona> llistaInvertidaNom = new TreeSet<Persona>(new ComparadorNom());
+		((TreeSet<Persona>)llistaPersones).descendingSet();
 		for (Persona persona : llistaInvertidaNom) {
 			System.out.println(persona);
 		}
 	}
 
 	public void ordenadesCognomAZ() {
-		Comparator<Persona> comp = new Comparator<Persona>() {
-			@Override
-			public int compare(Persona o1, Persona o2) {
-				return o1.getCognoms().compareToIgnoreCase(o2.getCognoms());
-			}
-		};
-		TreeSet<Persona> llistaCognoms = new TreeSet<>(comp);
-        llistaCognoms.addAll(llistaPersones);
-        for (Persona persona : llistaCognoms) {
-            System.out.println(persona);
-        }
+		TreeSet<Persona> llistaCognoms = new TreeSet<Persona>(new ComparadorCognoms());
+		llistaCognoms.addAll(llistaPersones);
+		for (Persona persona : llistaCognoms) {
+			System.out.println(persona);
+		}
 	}
 
-	/*
-	else {
-        TreeSet<Persona> personesOrdenades = new TreeSet<>(Collections.reverseOrder(comparator));
-        personesOrdenades.addAll(persones);
-        for (Persona p : personesOrdenades) {
-            System.out.println(p);
-        }
-    }
-}
+	public void ordenadesDni19() {
+		for (Persona persona : llistaPersones) {
+			System.out.println(persona);
+		}
+	}
 
-private static void mostrarPersonesOrdenadesPerDni(boolean ascendent) {
-    Comparator<Persona> comparator = new Comparator<Persona>() {
-        @Override
-        public int compare(Persona p1, Persona p2) {
-            return p1.getDni().compareTo(p2.getDni());
-        }
-    };
-    if (ascendent) {
-        TreeSet<Persona> personesOrdenades = new TreeSet<>(comparator);
-        personesOrdenades.addAll(persones);
-        for (Persona p : personesOrdenades) {
-            System.out.println(p);
-        }
-    } else {
-        TreeSet<Persona> personesOrdenades = new TreeSet<>(Collections.reverseOrder(comparator));
-        personesOrdenades.addAll(persones);
-        for (Persona p : personesOrdenades) {
-            System.out.println(p);
-        }
-    }
-}
-}*/
+	public void ordenadesDni91() {
+		TreeSet<Persona> llistaInvertidaDni = (TreeSet<Persona>) ((TreeSet<Persona>) llistaPersones).descendingSet();
+		for (Persona persona : llistaInvertidaDni) {
+			System.out.println(persona);
+		}
+	}
+	
+	//public void printList(Tres){}
 
 }

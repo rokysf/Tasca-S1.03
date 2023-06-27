@@ -2,7 +2,7 @@ package n3exercici1;
 
 import java.util.Objects;
 
-public class Persona implements Comparable<Persona> {
+public class Persona{
 
 	private String nom;
 	private String cognoms;
@@ -45,7 +45,7 @@ public class Persona implements Comparable<Persona> {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(dni);
+		return Objects.hash(nom,cognoms,dni);
 	}
 
 	@Override
@@ -57,12 +57,8 @@ public class Persona implements Comparable<Persona> {
 		if (getClass() != obj.getClass())
 			return false;
 		Persona other = (Persona) obj;
-		return Objects.equals(dni, other.dni);
+		return Objects.equals(nom, other.nom) && 
+				Objects.equals(cognoms, other.cognoms) && Objects.equals(dni, other.dni);
 	}
-
-	@Override
-	public int compareTo(Persona o) {
-		return nom.compareTo(o.nom);
-	}
-
+	
 }
