@@ -16,14 +16,14 @@ public class Principal {
 		llistaRestaurants.add(new Restaurant("La Lluerna", 9));
 		llistaRestaurants.add(new Restaurant("El Botafumeiro", 8));
 		llistaRestaurants.add(new Restaurant("Can Traver", 7));
-		
+
 		for (Restaurant restaurant : llistaRestaurants) {
 			System.out.println(restaurant);
 		}
 
 		System.out.println("**********************************************************");
 		TreeSet<Restaurant> llistaOrdenada = new TreeSet<Restaurant>(llistaRestaurants);
-		llistaOrdenada.add(new Restaurant("Can Traver", 7));
+
 		for (Restaurant restaurant : llistaOrdenada) {
 			System.out.println(restaurant);
 		}

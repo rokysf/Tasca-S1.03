@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class Concurs {
 
 	private static Scanner sc = new Scanner(System.in);
-	private static final String FITXER_CLASSIFICACIO = "src" + File.separator + "n1exercici3" + File.separator + "classificacio.txt";
+	private static final String FITXER_CLASSIFICACIO = "src" + File.separator + "n1exercici3" + File.separator + " classificacio.txt";
 	private static final String FITXER_PAISOS = "src" + File.separator + "n1exercici3" + File.separator + "countries.txt";
 	private HashMap<String, String> dadesConcurs;
 
